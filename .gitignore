@@ -1,0 +1,10 @@
+*.csv
+*.log
+coverage/
+*.cov
+*.mem
+deps/deps.jl
+.DS_Store
+.idea/
+.vscode/
+*~
