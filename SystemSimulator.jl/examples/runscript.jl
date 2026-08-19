@@ -6,9 +6,9 @@ and echoes the `EEC1` message back to `vcan2`.  Logs all signals to a CSV file.
 
 ## Prerequisites
 
-1. Virtual CAN interfaces configured:
-       bash J1939Parser.jl/logs/setupVirtualCAN.sh
-2. CAN traffic replaying on vcan1 (see `J1939Parser.jl/logs/`):
+1. Virtual CAN interfaces configured (from the SRTCore root):
+       bash IO/CAN/Drivers/CANInterface.jl/logs/setupVirtualCAN.sh
+2. CAN traffic replaying on vcan1:
        canplayer vcan1=can1 -I <logfile> -l i
 
 ## Running

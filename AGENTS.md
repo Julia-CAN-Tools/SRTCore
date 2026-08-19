@@ -7,11 +7,11 @@ own `AGENTS.md` before editing that package.
 
 | Package | Responsibility | Normal verification |
 | --- | --- | --- |
-| `CANUtils.jl` | CAN signal and frame encoding | Offline unit tests |
-| `J1939Parser.jl` | J1939 identifiers, messages, and catalogs | Offline unit tests |
-| `CANInterface.jl` | Linux SocketCAN driver | Offline load; CAN tests only on verified `vcan` |
+| `IO/CAN/Protocols/CANUtils.jl` | CAN signal and frame encoding | Offline unit tests |
+| `IO/CAN/Protocols/J1939Parser.jl` | J1939 identifiers, messages, and catalogs | Offline unit tests |
+| `IO/CAN/Drivers/CANInterface.jl` | Linux SocketCAN driver | Offline load; CAN tests only on verified `vcan` |
 | `SystemSimulator.jl` | Deterministic threaded control runtime | Offline threaded tests |
-| `SRTBonito.jl` | Bonito TCP monitoring and plotting UI | Offline/local-loopback tests |
+| `UI/SRTBonito.jl` | Bonito TCP monitoring and plotting UI | Offline/local-loopback tests |
 
 The dependency direction is:
 
@@ -39,11 +39,11 @@ local packages with registry packages of the same name.
 Use the smallest relevant offline command:
 
 ```bash
-julia --project=CANUtils.jl CANUtils.jl/test/runtests.jl
-julia --project=J1939Parser.jl J1939Parser.jl/test/runtests.jl
+julia --project=IO/CAN/Protocols/CANUtils.jl IO/CAN/Protocols/CANUtils.jl/test/runtests.jl
+julia --project=IO/CAN/Protocols/J1939Parser.jl IO/CAN/Protocols/J1939Parser.jl/test/runtests.jl
 julia --project=SystemSimulator.jl SystemSimulator.jl/test/runtests.jl
-julia --project=SRTBonito.jl SRTBonito.jl/test/runtests.jl
-julia --project=CANInterface.jl -e 'using CANInterface'
+julia --project=UI/SRTBonito.jl UI/SRTBonito.jl/test/runtests.jl
+julia --project=IO/CAN/Drivers/CANInterface.jl -e 'using CANInterface'
 ```
 
 Only run CANInterface transport tests after inspecting the exact target with:

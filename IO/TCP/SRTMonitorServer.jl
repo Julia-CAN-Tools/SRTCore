@@ -48,17 +48,6 @@ function TcpMonitor(
     )
 end
 
-function _send_header(sock::Sockets.TCPSocket, names::Vector{String})
-    write(sock, htol(UInt32(length(names))))
-    for name in names
-        encoded = Vector{UInt8}(name)
-        write(sock, htol(UInt16(length(encoded))))
-        write(sock, encoded)
-    end
-    flush(sock)
-    return nothing
-end
-
 function _monitor_accept_loop!(mon::TcpMonitor, side::Symbol)
     server = side === :in ? mon.in_server : mon.out_server
     lck = side === :in ? mon.in_lock : mon.out_lock

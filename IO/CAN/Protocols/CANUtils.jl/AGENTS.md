@@ -1,6 +1,6 @@
 # CANUtils Agent Instructions
 
-Follow the workspace `../AGENTS.md`. This package defines the bit-level CAN signal
+Follow the workspace `../../../../AGENTS.md`. This package defines the bit-level CAN signal
 and frame representation used by downstream parsers, runtimes, and applications.
 
 - Treat signal byte/bit numbering, scaling, offsets, signedness, DLC, and public

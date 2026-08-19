@@ -9,9 +9,6 @@ Wire protocol is raw binary Float64 frames with a handshake header.
 This is a direct Julia port of the original simulator client used by the web UI.
 """
 
-const _MAX_SIGNAL_COUNT = 10_000
-const _MAX_SIGNAL_NAME_LEN = 256
-
 """Fixed-capacity signal history with monotonically increasing sample sequence."""
 mutable struct HistoryBuffer <: AbstractVector{Float64}
     data::Vector{Float64}
@@ -144,23 +141,6 @@ function ensure_connected!(client::TcpClient)
     end
 
     return client.stream_sock !== nothing && client.param_sock !== nothing
-end
-
-"""Read TcpMonitor handshake: UInt32 count + (UInt16 name_len + UTF-8 name) per signal."""
-function _read_handshake(sock::Sockets.TCPSocket)
-    raw = read(sock, 4)
-    n = ltoh(reinterpret(UInt32, raw)[1])
-    n > _MAX_SIGNAL_COUNT && error("Handshake signal count $n exceeds limit $_MAX_SIGNAL_COUNT")
-    names = String[]
-    sizehint!(names, n)
-    for _ in 1:n
-        slen_raw = read(sock, 2)
-        slen = ltoh(reinterpret(UInt16, slen_raw)[1])
-        slen > _MAX_SIGNAL_NAME_LEN && error("Signal name length $slen exceeds limit $_MAX_SIGNAL_NAME_LEN")
-        name = String(read(sock, Int(slen)))
-        push!(names, name)
-    end
-    return names
 end
 
 """Background task: read Float64 frames, append to history."""

@@ -6,6 +6,7 @@ using Sockets
 using OrderedCollections: OrderedDict
 using PrecompileTools
 
+include("../../../IO/TCP/SRTMonitorProtocol.jl")
 include("tcp_client.jl")
 include("config.jl")
 include("components.jl")

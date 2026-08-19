@@ -145,4 +145,4 @@ and encode by signal name without changing the hot system API.
 - input port: receives parameter vectors in declared monitor-parameter order
 - output port: streams `Time`, inputs, outputs, and params in logger-column order
 
-See [examples/tcp_example.jl](/home/aditya/Desktop/SRT/SystemSimulator.jl/examples/tcp_example.jl) for a minimal runnable example.
+See [examples/tcp_example.jl](examples/tcp_example.jl) for a minimal runnable example.

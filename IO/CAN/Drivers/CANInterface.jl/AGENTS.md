@@ -1,6 +1,6 @@
 # CANInterface Agent Instructions
 
-Follow the workspace `../AGENTS.md`. This package is the hardware boundary: raw
+Follow the workspace `../../../../AGENTS.md`. This package is the hardware boundary: raw
 Linux SocketCAN sockets, frame layouts, filters, timeouts, and deterministic close.
 
 - Keep C-compatible struct layouts and validate standard/extended IDs and DLC.

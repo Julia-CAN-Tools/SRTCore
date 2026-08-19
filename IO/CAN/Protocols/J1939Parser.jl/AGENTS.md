@@ -1,6 +1,6 @@
 # J1939Parser Agent Instructions
 
-Follow the workspace `../AGENTS.md`. This package owns J1939 identifier parsing and
+Follow the workspace `../../../../AGENTS.md`. This package owns J1939 identifier parsing and
 message catalogs and depends on the local `CANUtils.jl`.
 
 - Preserve 29-bit identifier layout, PDU1/PDU2 semantics, source/destination

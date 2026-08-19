@@ -1,6 +1,6 @@
 # SRTBonito Agent Instructions
 
-Follow the workspace `../AGENTS.md`. This package owns the shared Bonito/Plotly.js
+Follow the workspace `../../AGENTS.md`. This package owns the shared Bonito/Plotly.js
 UI foundation and TCP client for parameter input and signal streaming.
 
 - Preserve the binary protocol: little-endian signal count, length-prefixed UTF-8
