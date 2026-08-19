@@ -10,6 +10,17 @@ The runtime is now schema-driven and performance-oriented:
 - the steady-state control path uses `control_step!`
 - runtime-owned parameters replace the old `Dict`-based callback contract
 
+## Package Layout
+
+- `src/Interfaces/` defines the `AbstractSystem` and `AbstractIO` contracts.
+- `src/Runtime/` owns configuration, runtime state, data flow, and execution loops.
+- `src/Signals/` contains schema-driven signal storage.
+- `src/Concurrency/` contains the stop signal and single-producer/single-consumer queue.
+- `src/Lifecycle/` contains the reusable system lifecycle helper.
+
+Concrete CAN, TCP monitor, and CSV logging implementations live under the shared
+`SRTCore/IO/` hierarchy.
+
 ## Running
 
 ```bash
@@ -145,4 +156,4 @@ and encode by signal name without changing the hot system API.
 - input port: receives parameter vectors in declared monitor-parameter order
 - output port: streams `Time`, inputs, outputs, and params in logger-column order
 
-See [examples/tcp_example.jl](examples/tcp_example.jl) for a minimal runnable example.
+See [examples/tcp_monitor.jl](examples/tcp_monitor.jl) for a minimal runnable example.

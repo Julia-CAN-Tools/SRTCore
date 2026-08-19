@@ -5,19 +5,20 @@ import CANUtils as CU
 import Dates
 import Sockets
 
-include("stopsignal.jl")
-include("signal_buffer.jl")
-include("spsc_queue.jl")
+include("Signals/SignalBuffer.jl")
+include("Concurrency/StopSignal.jl")
+include("Concurrency/SPSCQueue.jl")
+include("Interfaces/AbstractSystem.jl")
+include("Interfaces/AbstractIO.jl")
 include("../../IO/File/SRTCSVLogger.jl")
-include("IO/abstractIO.jl")
 include("../../IO/CAN/SRTCanAdapter.jl")
-include("config.jl")
+include("Runtime/Configuration.jl")
 include("../../IO/TCP/SRTMonitorProtocol.jl")
 include("../../IO/TCP/SRTMonitorServer.jl")
-include("runtime.jl")
-include("utils.jl")
-include("loops.jl")
-include("lifecycle.jl")
+include("Runtime/Runtime.jl")
+include("Runtime/DataFlow.jl")
+include("Runtime/Loops.jl")
+include("Lifecycle/SystemLifecycle.jl")
 
 export AbstractSystem,
        AbstractIO,

@@ -14,7 +14,7 @@ and echoes the `EEC1` message back to `vcan2`.  Logs all signals to a CSV file.
 ## Running
 
     cd SystemSimulator.jl
-    julia --threads=auto --project=. examples/runscript.jl
+    julia --threads=auto --project=. examples/basic_runtime.jl
 
 ## Signal namespacing
 

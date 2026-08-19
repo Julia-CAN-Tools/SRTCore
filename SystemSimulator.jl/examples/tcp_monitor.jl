@@ -11,7 +11,7 @@ cycle, and applies parameter updates received from the GUI.
 ## Running
 
     cd SystemSimulator.jl
-    julia --threads=auto --project=. examples/tcp_example.jl
+    julia --threads=auto --project=. examples/tcp_monitor.jl
 
 ## Connecting from Python
 
